@@ -1,0 +1,37 @@
+#board tr:nth-child(even) td:nth-child(even), #board tr:nth-child(odd)	td:nth-child(odd){
+	background-color: #FFF8DC;		
+}
+#board tr:nth-child(even) td:nth-child(odd),#board tr:nth-child(odd) td:nth-child(even){
+	background-color: #800000;	
+}
+#board tr td:hover{
+	opacity: 0.5;
+	filter: alpha(opacity=50);
+}
+#board td,img{
+	width: 50px;
+	height: 72px;
+
+	border: 4px ridge #800000 ;
+}
+#board
+{
+	table-layout:fixed ;	
+	border: 6px ridge black ;
+}
+img{
+	width:100%;
+}
+img:visited{
+	opacity: 1.0;
+	filter: alpha(opacity=100);
+}
+
+#hidForm
+{
+	margin-left: 800px;
+	margin-right: 100px;
+	border: 4px ridge #800000 ;
+	background-color: #FFF8DC;
+
+}
