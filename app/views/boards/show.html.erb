@@ -8,27 +8,30 @@ var playerPiece= '<%= @boards.current_player %>';
 var gameHistory = [];
 
 </script>
-<script data-turbolinks-track="true" src="/chess.js"></script>
-<table id="board" class=" col-xs-7 "></table>	
-<div id="hidForm">
-<h4><u>BOARD INFORMATION</u></h4>
-BOARD NAME:  <%= @boards.board_name %><br>
-YOUR COLOR: <% if cookies[@boards.id] %>
-				<span style="color : green"> White </span><br> 
-				<% else %>
-				<span style ="color :red"> Black </span><br>
-			  <%end %>
-PLAYER TO MOVE: <% if @boards.current_player == "b" %>
-				<span style="color : green"> White </span><br>
-				<% else %>
-				<span style ="color :red"> Black </span>
-			  <%end %>
+		  
 			  
-<%= form_for @boards do |f| %>
+<%= form_for @boards  do |f| %>
   <%= f.text_area :piece_position%>
    <%= f.text_area :current_player%>
   <%= f.submit "Submit" %>
  <% end %>
 
+<script data-turbolinks-track="true" src="/chess.js"></script>
+<table id="board" class=" col-xs-7 "></table>	
 
+<div class="col-xs-3" style= " border: 2px solid  #4B0082" >
+<h4><strong><u>BOARD INFORMATION</u></strong></h4>
+<strong>BOARD NAME:</strong>  <%= @boards.board_name %><br>
+<strong>YOUR COLOR:</strong> <% if @boards.current_player == cookies[@boards.id] %> 
+							<span style="color : red"> <%= cookies[@boards.id] %> </span><br>
+							 <%else%>
+							<span style="color : green"> <%= cookies[@boards.id] %> </span> <br>
+							 <%end%>
+					
+<strong>PLAYER TO MOVE:</strong> <% if @boards.current_player == "b" %>
+				<span style="color : #800000"> White </span><br>
+				<% else %>
+				<span style ="color : #800000"> Black </span>
+			  <%end %>
+</div>	
   

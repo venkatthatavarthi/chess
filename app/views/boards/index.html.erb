@@ -1,7 +1,7 @@
 <!--<%= link_to "Create Board", new_board_path%>-->
-<%= form_for @board do |f| %>
+<%= form_for @board, :html=> { class: 'col-xs-7'} do |f|  %>
   <%= f.text_field :board_name %>  
-  <%= f.submit "CREATE BOARD" %>
+  <%= f.submit "CREATE BOARD" ,:class => 'btn-primary' %>
  <% end %>
 <% unless @board.errors.empty? %>       
        <ul>
@@ -11,16 +11,16 @@
        </ul>
 <% end %>
 
-<table class="table_join">
+<table class="col-xs-4 table-bordered">
 	<tr>
-		<td>id</td>
-		<td>join</td>
+		<td  class="text-center"><strong>BOARD ID</strong></td>
+		<td  class="text-center"><strong>JOIN PLAYER</strong></td>
 	</tr>
 	
 	<% @boards.each do |p|%>
 	<tr>
-		<td><%=p.id%></td>
-		<td><u><%= link_to p.board_name, p %></u></td>
+		<td  class="text-center"><%=p.id%></td>
+		<td  class="text-center"><u><%= link_to p.board_name, p %></u></td>
 		
 	</tr>	
 	<%end%>
